@@ -1,0 +1,100 @@
+Pasos explicados:
+1:
+Hacer pull de las últimas actualizaciones del repositorio Git:
+Si descargaste el proyecto desde Git, ve a la carpeta del proyecto en la terminal y ejecuta:
+git pull origin main  # O la rama correspondiente
+
+2:
+Crear la base de datos en PostgreSQL:
+Abre tu terminal y accede a PostgreSQL:
+
+psql -U postgres
+
+Luego ejecuta los siguientes comandos dentro de psql para crear la base de datos:
+
+CREATE DATABASE antispamtests;
+CREATE USER postgres WITH PASSWORD 'flu2017';
+ALTER DATABASE antispamtests OWNER TO postgres;
+Nota: Si tu usuario de PostgreSQL ya es postgres, este paso puede no ser necesario.
+
+3:
+Ejecutar las migraciones para crear las tablas:
+Desde la carpeta raíz del proyecto, ejecuta en la terminal:
+vendor/bin/phinx rollback -e development -t 0
+vendor/bin/phinx migrate
+vendor/bin/phinx seed:run
+
+Esto eliminará cualquier tabla existente, creará las nuevas estructuras y poblará la base de datos con datos de prueba.
+
+4:
+Iniciar el servidor PHP:
+Desde la carpeta del proyecto, ejecuta:
+php -d display_errors=0 -S localhost:8000 -t .
+
+5:
+Acceder a la aplicación:
+Abre tu navegador y ve a:
+http://localhost:8000/antispamsms/base_denuncias/
+
+Posibles problemas y soluciones:
+"vendor/bin/phinx: No such file or directory" → Asegúrate de instalar las dependencias con:
+composer install
+
+"FATAL: database 'antispamtests' does not exist" → Verifica que la base de datos se creó correctamente con \l en psql.
+"Access denied for user 'postgres'" → Puede que la contraseña flu2017 no sea la correcta en tu configuración de PostgreSQL. Intenta cambiarla en el archivo de configuración del proyecto.
+
+
+
+//Instalacion de PHP. Usar diferentes versiones 
+
+verificar la version instalada:
+php -v
+
+//instalar PHP 7.4
+
+sudo apt install php7.4 php7.4-cli php7.4-mbstring php7.4-xml php7.4-pgsql
+
+//Alternar entre versiones:
+sudo update-alternatives --config php
+
+5️⃣ Configurar Apache (opcional, si usas un servidor web)
+Si usas Apache, activa el módulo correcto de PHP y reinicia el servidor:
+
+
+sudo a2dismod php8.2   # Desactiva PHP 8.2
+sudo a2enmod php7.4    # Activa PHP 7.4
+sudo systemctl restart apache2
+
+Para volver a PHP 8:
+
+sudo a2dismod php7.4
+sudo a2enmod php8.2
+sudo systemctl restart apache2
+
+🔄 Alternar PHP entre versiones rápidamente
+Si cambias de versión con frecuencia, puedes hacer scripts para cambiar fácilmente:
+
+Script para cambiar a PHP 7.4 (switch_php7.sh)
+
+#!/bin/bash
+sudo update-alternatives --set php /usr/bin/php7.4
+php -v
+Script para cambiar a PHP 8.2 (switch_php8.sh)
+
+#!/bin/bash
+sudo update-alternatives --set php /usr/bin/php8.2
+php -v
+
+Luego, dales permisos de ejecución y úsalos:
+
+chmod +x switch_php7.sh switch_php8.sh
+./switch_php7.sh  # Cambia a PHP 7.4
+./switch_php8.sh  # Cambia a PHP 8.2
+
+
+psql -U postgres -d antispamtests
+
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS "pg_stat_statements";
+CREATE EXTENSION IF NOT EXISTS "pg_trgm";

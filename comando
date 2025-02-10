@@ -1,0 +1,197 @@
+## ✪ Comandos Git Más Usados
+
+### **1. Configuración Inicial**
+```sh
+git config --global user.name "Tu Nombre"
+git config --global user.email "tuemail@example.com"
+```
+**Configura tu nombre y correo en Git.**
+
+```sh
+git config --list
+```
+**Muestra la configuración actual de Git.**
+
+---
+### **2. Inicializar y Clonar Repositorios**
+```sh
+git init
+```
+**Inicializa un nuevo repositorio en la carpeta actual.**
+
+```sh
+git clone <url>
+```
+**Clona un repositorio remoto en tu máquina local.**
+
+---
+### **3. Estado y Cambios**
+```sh
+git status
+```
+**Muestra el estado de los archivos en el repositorio.**
+
+```sh
+git add <archivo>
+git add .
+```
+**Agrega archivos al área de preparación.**
+
+```sh
+git commit -m "Mensaje del commit"
+```
+**Guarda los cambios en el historial del repositorio.**
+
+```sh
+git diff
+```
+**Muestra diferencias entre archivos modificados y la última versión confirmada.**
+
+---
+### **4. Deshacer Cambios**
+```sh
+git checkout -- <archivo>
+```
+**Descarta cambios en un archivo antes de `git add`.**
+
+```sh
+git reset HEAD <archivo>
+```
+**Saca un archivo del área de preparación.**
+
+```sh
+git reset --hard HEAD~1
+```
+**Revierte el último commit y borra los cambios.**
+
+---
+### **5. Ver Historial**
+```sh
+git log
+git log --oneline --graph --all
+```
+**Muestra el historial de commits de forma detallada o resumida.**
+
+```sh
+git show <commit_hash>
+```
+**Muestra los cambios de un commit específico.**
+
+---
+### **6. Ramas (Branches)**
+```sh
+git branch
+```
+**Lista las ramas existentes.**
+
+```sh
+git branch <nombre>
+```
+**Crea una nueva rama.**
+
+```sh
+git switch <nombre>
+```
+**Cambia a otra rama.**
+
+```sh
+git merge <nombre>
+```
+**Fusiona una rama con la actual.**
+
+```sh
+git branch -d <nombre>
+```
+**Elimina una rama local.**
+
+---
+### **7. Trabajando con Repositorios Remotos**
+```sh
+git remote add origin <url>
+```
+**Vincula un repositorio local con un remoto.**
+
+```sh
+git remote -v
+```
+**Muestra los repositorios remotos vinculados.**
+
+```sh
+git push -u origin <nombre_rama>
+```
+**Sube una rama al repositorio remoto y la vincula.**
+
+```sh
+git pull
+```
+**Descarga y fusiona cambios desde el remoto.**
+
+```sh
+git fetch
+```
+**Descarga cambios sin fusionarlos automáticamente.**
+
+---
+### **8. Etiquetas (Tags)**
+```sh
+git tag <nombre_version>
+```
+**Crea una etiqueta para marcar una versión.**
+
+```sh
+git tag
+```
+**Muestra todas las etiquetas existentes.**
+
+```sh
+git push origin <nombre_version>
+```
+**Sube una etiqueta al repositorio remoto.**
+
+---
+### **9. Stash (Guardar cambios temporalmente)**
+```sh
+git stash
+```
+**Guarda cambios sin confirmarlos.**
+
+```sh
+git stash pop
+```
+**Restaura cambios guardados.**
+
+```sh
+git stash list
+```
+**Muestra los cambios guardados en stash.**
+
+```sh
+git stash drop
+```
+**Elimina el stash más reciente.**
+
+---
+### **10. Cómo Generar una Llave SSH**
+Si necesitas autenticarte en GitHub sin escribir tu contraseña cada vez, sigue estos pasos:
+
+```sh
+ssh-keygen -t rsa -b 4096 -C "tuemail@example.com"
+```
+**Genera una nueva clave SSH.**
+
+Presiona `Enter` para aceptar la ubicación predeterminada:  
+`~/.ssh/id_rsa` (clave privada)  
+`~/.ssh/id_rsa.pub` (clave pública)
+
+```sh
+cat ~/.ssh/id_rsa.pub
+```
+**Muestra la clave pública.**
+
+Copia la clave y agrégala en **GitHub → Settings → SSH Keys**.
+
+---
+
+Este listado cubre los comandos esenciales que necesitarás en el día a día con Git. 🚀
+
+

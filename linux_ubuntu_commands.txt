@@ -1,0 +1,26 @@
+
+1. ls: Lists files and directories in the current directory.
+2. cd <directory>: Changes the current directory to the specified directory.
+3. pwd: Prints the current working directory.
+4. mkdir <directory_name>: Creates a new directory.
+5. rm <file_name>: Deletes a file.
+6. rm -r <directory_name>: Deletes a directory and its contents.
+7. cp <source> <destination>: Copies files or directories.
+8. mv <source> <destination>: Moves or renames files and directories.
+9. touch <file_name>: Creates a new empty file.
+10. cat <file_name>: Displays the content of a file.
+11. nano <file_name>: Opens a file in the nano text editor.
+12. sudo <command>: Runs a command with superuser (root) privileges.
+13. apt update: Updates the list of available packages and versions.
+14. apt upgrade: Installs the latest versions of all installed packages.
+15. top: Shows real-time system processes and resource usage.
+16. df -h: Displays disk usage of filesystems in a human-readable format.
+17. free -h: Shows available and used memory.
+18. ps aux: Lists all running processes with detailed information.
+19. kill <process_id>: Terminates a process by its ID.
+20. chmod <permissions> <file_name>: Changes file permissions.
+21. chown <owner> <file_name>: Changes file owner.
+22. man <command>: Displays the manual page for a command.
+23. history: Shows the command history.
+24. whoami: Displays the current logged-in user.
+25. uname -r: Shows the current kernel version.

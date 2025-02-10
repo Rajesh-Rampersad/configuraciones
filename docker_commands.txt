@@ -1,0 +1,21 @@
+
+1. docker --version: Shows the Docker version installed on your system.
+2. docker images: Lists all Docker images on your system.
+3. docker ps: Displays all running containers.
+4. docker ps -a: Shows all containers, including stopped ones.
+5. docker pull <image_name>: Downloads an image from Docker Hub.
+6. docker run <image_name>: Creates and starts a container from an image.
+7. docker stop <container_id>: Stops a running container.
+8. docker start <container_id>: Starts a stopped container.
+9. docker rm <container_id>: Removes a container.
+10. docker rmi <image_name>: Deletes an image.
+11. docker exec -it <container_id> <command>: Executes a command inside a running container.
+12. docker build -t <image_name> .: Builds an image from a Dockerfile in the current directory.
+13. docker logs <container_id>: Shows logs for a specific container.
+14. docker inspect <container_id>: Displays detailed information about a container.
+15. docker network ls: Lists all Docker networks.
+16. docker volume ls: Shows all Docker volumes.
+17. docker-compose up: Starts containers as defined in the docker-compose.yml file.
+18. docker-compose down: Stops and removes containers, networks, and volumes created by docker-compose.
+19. docker tag <image_name> <new_tag>: Tags an image with a new name.
+20. docker push <image_name>: Uploads an image to a Docker registry (e.g., Docker Hub).

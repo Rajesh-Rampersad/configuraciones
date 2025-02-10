@@ -1,0 +1,86 @@
+Estos comandos activan extensiones en PostgreSQL. Las extensiones agregan funcionalidades adicionales a la base de datos.  
+
+### 📌 **Explicación de cada extensión**
+---
+
+### 1️⃣ `CREATE EXTENSION IF NOT EXISTS "pgcrypto";`
+🔹 **¿Qué hace?**  
+Habilita la extensión `pgcrypto`, que proporciona funciones criptográficas en PostgreSQL.  
+
+🔹 **Funciones que agrega:**  
+- `gen_random_uuid()` → Genera un UUID aleatorio.  
+- `crypt('contraseña', gen_salt('md5'))` → Hashea contraseñas.  
+- `decrypt()` y `encrypt()` → Cifrado de datos.
+
+🔹 **Ejemplo de uso:**  
+```sql
+SELECT gen_random_uuid();
+-- Resultado: 550e8400-e29b-41d4-a716-446655440000
+```
+
+---
+
+### 2️⃣ `CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`
+🔹 **¿Qué hace?**  
+Agrega funciones para generar UUIDs usando diferentes algoritmos.  
+
+🔹 **Funciones que agrega:**  
+- `uuid_generate_v1()` → Basado en MAC address y timestamp.  
+- `uuid_generate_v4()` → Genera un UUID aleatorio (como `gen_random_uuid()`).  
+
+🔹 **Ejemplo de uso:**  
+```sql
+SELECT uuid_generate_v4();
+-- Resultado: a4c4f647-65de-4d7f-9c91-0f53c5b78cde
+```
+🔹 **Diferencia con `pgcrypto`**  
+- `uuid-ossp` y `pgcrypto` pueden generar UUIDs, pero `pgcrypto` usa solo `gen_random_uuid()` (versión 4).  
+- `uuid-ossp` te permite elegir entre diferentes versiones de UUID.
+
+---
+
+### 3️⃣ `CREATE EXTENSION IF NOT EXISTS "pg_stat_statements";`
+🔹 **¿Qué hace?**  
+Permite monitorear y analizar consultas SQL ejecutadas en la base de datos.  
+
+🔹 **¿Para qué se usa?**  
+- Ver las consultas más lentas.  
+- Optimizar índices y mejorar rendimiento.  
+
+🔹 **Ejemplo de uso:**  
+```sql
+SELECT * FROM pg_stat_statements ORDER BY total_time DESC LIMIT 5;
+```
+Esto muestra las 5 consultas que más tiempo han consumido en la base de datos.
+
+---
+
+### 4️⃣ `CREATE EXTENSION IF NOT EXISTS "pg_trgm";`
+🔹 **¿Qué hace?**  
+Permite realizar **búsquedas aproximadas** y mejorar consultas con texto en PostgreSQL.  
+
+🔹 **Funciones que agrega:**  
+- `similarity('texto1', 'texto2')` → Calcula la similitud entre dos cadenas.  
+- `word_similarity('texto1', 'texto2')` → Versión más flexible de `similarity()`.  
+- `gin` y `gist` indexes para búsquedas más rápidas en texto.  
+
+🔹 **Ejemplo de uso:**  
+```sql
+SELECT similarity('postgresql', 'postgre') AS resultado;
+-- Resultado: 0.75  (75% de similitud)
+```
+🔹 **¿Para qué se usa?**  
+- **Autocompletado** en búsquedas.  
+- **Corrección de errores tipográficos** en bases de datos.  
+
+---
+
+### 🚀 **Resumen rápido**
+| Extensión | Función principal |
+|-----------|------------------|
+| **pgcrypto** | Funciones criptográficas (UUID, hashing de contraseñas). |
+| **uuid-ossp** | Generación de UUIDs con diferentes versiones. |
+| **pg_stat_statements** | Monitorea consultas SQL para optimizar rendimiento. |
+| **pg_trgm** | Búsquedas aproximadas en texto (autocompletado, similitud). |
+
+Si necesitas más detalles o ejemplos específicos, dime qué estás intentando hacer y te ayudo. 😊
