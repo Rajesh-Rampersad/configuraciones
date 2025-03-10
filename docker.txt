@@ -1,0 +1,56 @@
+Aquí tienes una lista de los comandos más utilizados en Docker, junto con una breve descripción de cada uno:
+
+### Gestión de Imágenes
+- **`docker pull <imagen>`**: Descarga una imagen desde Docker Hub.
+- **`docker build -t <nombre>:<tag> <ruta>`**: Crea una imagen desde un `Dockerfile` en la ruta especificada.
+- **`docker images`**: Muestra todas las imágenes almacenadas localmente.
+- **`docker rmi <imagen>`**: Elimina una imagen específica de Docker local.
+
+### Gestión de Contenedores
+- **`docker run <imagen>`**: Inicia un contenedor desde una imagen.
+  - **`-d`**: Ejecuta el contenedor en segundo plano (modo detach).
+  - **`-p <puerto_local>:<puerto_contenedor>`**: Asigna puertos del host al contenedor.
+  - **`--name <nombre>`**: Asigna un nombre al contenedor.
+- **`docker ps`**: Muestra los contenedores en ejecución.
+  - **`-a`**: Muestra todos los contenedores, incluidos los detenidos.
+- **`docker exec -it <contenedor> <comando>`**: Ejecuta un comando dentro de un contenedor en ejecución, interactivo (útil para `bash` o `sh`).
+- **`docker stop <contenedor>`**: Detiene un contenedor en ejecución.
+- **`docker start <contenedor>`**: Inicia un contenedor detenido.
+- **`docker rm <contenedor>`**: Elimina un contenedor específico.
+  - **`-f`**: Fuerza la eliminación de un contenedor en ejecución.
+- **`docker logs <contenedor>`**: Muestra los registros (logs) de un contenedor.
+
+### Redes
+- **`docker network ls`**: Lista todas las redes de Docker.
+- **`docker network create <nombre>`**: Crea una nueva red.
+- **`docker network rm <nombre>`**: Elimina una red específica.
+
+### Volúmenes
+- **`docker volume ls`**: Lista todos los volúmenes de Docker.
+- **`docker volume create <nombre>`**: Crea un nuevo volumen.
+- **`docker volume rm <nombre>`**: Elimina un volumen específico.
+
+### Limpieza de Recursos
+- **`docker system prune`**: Limpia imágenes, contenedores, redes y volúmenes no utilizados para liberar espacio.
+  - **`--all`**: Incluye imágenes no utilizadas.
+
+
+Para eliminar todos los contenedores que están en ejecución, primero debes detenerlos y luego eliminarlos. Aquí están los comandos que necesitas:
+
+1. **Detener todos los contenedores en ejecución**:
+   ```bash
+   docker stop $(docker ps -q)
+   ```
+
+2. **Eliminar todos los contenedores detenidos**:
+   ```bash
+   docker rm $(docker ps -aq)
+   ```
+
+Explicación:
+- `docker ps -q`: lista los IDs de todos los contenedores en ejecución.
+- `docker ps -aq`: lista los IDs de todos los contenedores (incluidos los detenidos).
+- `docker stop` y `docker rm`: se usan para detener y eliminar contenedores, respectivamente.
+- `docker stop $(docker container ls -q)
+
+Este conjunto de comandos te permitirá detener y eliminar todos los contenedores activos en tu máquina.
