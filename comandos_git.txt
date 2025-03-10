@@ -1,0 +1,117 @@
+### Comandos más utilizados de Git
+
+#### Configuración Inicial
+```
+git config --global user.name "Tu Nombre"
+git config --global user.email "tuemail@example.com"
+```
+
+#### Crear un Repositorio
+```
+git init
+```
+
+#### Clonar un Repositorio
+```
+git clone URL_DEL_REPOSITORIO
+```
+
+#### Ver Estado del Repositorio
+```
+git status
+```
+
+#### Agregar Cambios al Staging Area
+```
+git add archivo.txt  # Agregar un archivo
+
+# Agregar todos los archivos modificados
+
+git add .
+```
+
+#### Confirmar (Commit) los Cambios
+```
+git commit -m "Mensaje del commit"
+```
+
+#### Ver Historial de Commits
+```
+git log
+```
+
+#### Ver Diferencias entre Cambios
+```
+git diff  # Ver cambios sin agregar al staging
+
+git diff --staged  # Ver cambios agregados al staging pero no confirmados
+```
+
+#### Crear y Cambiar de Rama (Branch)
+```
+git branch nueva-rama  # Crear nueva rama
+git checkout nueva-rama  # Cambiar a la nueva rama
+
+git checkout -b otra-rama  # Crear y cambiar a una nueva rama
+```
+
+#### Fusionar (Merge) Ramas
+```
+git checkout main  # Cambiar a la rama principal
+git merge otra-rama  # Fusionar otra-rama con main
+```
+
+#### Enviar Cambios al Repositorio Remoto
+```
+git push origin nombre-de-la-rama
+```
+
+#### Obtener Últimos Cambios del Repositorio Remoto
+```
+git pull origin nombre-de-la-rama
+```
+
+#### Restablecer Cambios
+```
+git reset --hard HEAD~1  # Deshacer el último commit y eliminar cambios
+
+git reset --soft HEAD~1  # Deshacer el último commit pero mantener cambios en staging
+```
+
+#### Eliminar Archivos del Repositorio
+```
+git rm archivo.txt  # Eliminar archivo y hacer commit
+```
+
+#### Agregar Repositorio Remoto
+```
+git remote add origin URL_DEL_REPOSITORIO
+```
+
+#### Cambiar la URL del Repositorio Remoto
+```
+git remote set-url origin NUEVA_URL
+```
+
+#### Ver Ramas Remotas
+```
+git branch -r
+```
+
+#### Ver Todas las Ramas
+```
+git branch -a
+```
+
+#### Guardar Cambios sin Confirmar (Stash)
+```
+git stash  # Guardar cambios temporalmente
+git stash pop  # Restaurar cambios guardados
+```
+
+#### Eliminar una Rama
+```
+git branch -d nombre-de-la-rama  # Eliminar rama local
+git push origin --delete nombre-de-la-rama  # Eliminar rama remota
+```
+
