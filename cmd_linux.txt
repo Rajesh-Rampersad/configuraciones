@@ -1,0 +1,53 @@
+Aquí tienes una lista de comandos básicos y frecuentemente usados en Linux Ubuntu, junto con una breve descripción de cada uno:
+
+### Navegación de Archivos y Directorios
+- **`ls`**: Lista archivos y directorios en la ubicación actual.
+  - **`-l`**: Muestra detalles de los archivos (permisos, propietario, tamaño, etc.).
+  - **`-a`**: Incluye archivos ocultos.
+- **`cd <directorio>`**: Cambia al directorio especificado.
+- **`pwd`**: Muestra la ruta del directorio actual.
+- **`mkdir <nombre>`**: Crea un nuevo directorio.
+- **`rm <archivo>`**: Elimina archivos.
+  - **`-r`**: Borra de manera recursiva (para eliminar directorios y su contenido).
+- **`cp <origen> <destino>`**: Copia archivos o directorios.
+- **`mv <origen> <destino>`**: Mueve o renombra archivos y directorios.
+
+### Manipulación de Archivos
+- **`touch <archivo>`**: Crea un archivo vacío o actualiza la fecha de modificación.
+- **`cat <archivo>`**: Muestra el contenido de un archivo.
+- **`nano <archivo>`**: Abre un editor de texto básico en la terminal.
+- **`vim <archivo>`**: Abre un editor de texto avanzado en la terminal.
+- **`head <archivo>`**: Muestra las primeras líneas de un archivo.
+- **`tail <archivo>`**: Muestra las últimas líneas de un archivo.
+  - **`-f`**: Muestra contenido en tiempo real, útil para logs.
+
+### Administración de Paquetes
+- **`sudo apt update`**: Actualiza la lista de paquetes y repositorios.
+- **`sudo apt upgrade`**: Instala las actualizaciones de los paquetes.
+- **`sudo apt install <paquete>`**: Instala un paquete.
+- **`sudo apt remove <paquete>`**: Elimina un paquete.
+sudo apt autoremove autoremove: Elimina paquetes instalados automáticamente que ya no son necesarios.
+sudo apt autoclean autoclean: Limpia los paquetes descargados que ya no están disponibles.
+
+
+### Administración del Sistema
+- **`sudo`**: Ejecuta un comando como superusuario.
+- **`whoami`**: Muestra el nombre de usuario actual.
+- **`uname -a`**: Muestra información del sistema.
+- **`top`**: Muestra procesos en ejecución y uso de recursos en tiempo real.
+- **`ps aux`**: Lista todos los procesos en ejecución.
+- **`kill <PID>`**: Termina un proceso especificado por su ID.
+- **`df -h`**: Muestra el uso de espacio en disco en un formato legible.
+- **`du -h <directorio>`**: Muestra el tamaño de archivos y directorios.
+
+### Redes
+- **`ping <host>`**: Envía paquetes a un host para verificar la conectividad.
+- **`ifconfig`** o **`ip addr`**: Muestra información de la interfaz de red.
+- **`curl <URL>`**: Realiza solicitudes a una URL (útil para probar conexiones).
+- **`wget <URL>`**: Descarga archivos de la URL especificada.
+
+### Compresión y Descompresión
+- **`tar -czvf <archivo.tar.gz> <directorio>`**: Comprime un directorio en un archivo `.tar.gz`.
+- **`tar -xzvf <archivo.tar.gz>`**: Descomprime un archivo `.tar.gz`.
+- **`zip <archivo.zip> <archivo_o_directorio>`**: Comprime archivos o directorios en `.zip`.
+- **`unzip <archivo.zip>`**: Extrae archivos de un `.zip`.
