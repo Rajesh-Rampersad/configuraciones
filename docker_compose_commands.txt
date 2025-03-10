@@ -1,0 +1,23 @@
+
+# Lista de comandos Docker Compose
+
+docker-compose up - Levanta los servicios definidos en el archivo docker-compose.yml. Agrega la opción -d para ejecutarlos en segundo plano.
+docker-compose down - Detiene y elimina los contenedores, redes, y volúmenes creados por docker-compose up.
+docker-compose start - Inicia los servicios que ya han sido creados, pero están detenidos.
+docker-compose stop - Detiene los servicios en ejecución sin eliminarlos.
+docker-compose restart - Reinicia los servicios definidos en el archivo docker-compose.yml.
+docker-compose ps - Muestra el estado de los contenedores gestionados por Docker Compose.
+docker-compose logs - Muestra los registros (logs) de los contenedores en tiempo real.
+docker-compose build - Construye o reconstruye las imágenes especificadas en el archivo.
+docker-compose pull - Descarga las imágenes de los servicios definidos en docker-compose.yml.
+docker-compose exec <service> <command> - Ejecuta un comando dentro de un contenedor en ejecución.
+docker-compose rm - Elimina los contenedores detenidos y los servicios asociados.
+docker-compose config - Valida y muestra la configuración del archivo docker-compose.yml.
+docker-compose scale <service>=<num> - Escala el número de contenedores de un servicio a la cantidad especificada.
+docker-compose run <service> <command> - Ejecuta un comando en un nuevo contenedor del servicio sin iniciar todo el conjunto de servicios.
+
+# Ejemplo de comandos con opciones:
+docker-compose up --build - Construye las imágenes antes de iniciar los servicios.
+docker-compose down -v - Detiene y elimina los volúmenes asociados a los servicios.
+docker-compose logs -f - Muestra los registros en tiempo real y permanece activo.
+
